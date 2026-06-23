@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Duration;
+import java.util.List;
 
 @Getter
 @Setter
@@ -52,8 +53,13 @@ public class Filme {
     @Column(name = "NR_AVALIACAO")
     private Double avaliacao;
 
+    @OneToMany(mappedBy = "filme")
+    private List<Sessao> sessoes;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "CHK_EM_CARTAZ")
     private SimNaoEnum emCartaz;
+
+
 
 }
